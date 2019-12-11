@@ -1,0 +1,24 @@
+HOW TO DJANGO
+
+Install
+	[command] pip (or pipenv) install django
+
+Create a django project -
+	create a directory to house the project: [command] mkdir my_project
+	cd into my_project
+	[command] django-admin.py startproject app_name .
+
+Create a django app - 
+	[command] python manage.py createapp name_of_app
+		-this is a sub-packaged app that is scaffolded and snapped into the main django 'app'
+
+Run django in dev mode / dev server- 
+	[command] python manage.py runserver
+
+Migrate db migration scripts to the database - 
+	[command] python manage.py migrate
+
+Create a superuser for django-admin?
+	[command] python manage.py createsuperuser
+	follow the prompts
+
