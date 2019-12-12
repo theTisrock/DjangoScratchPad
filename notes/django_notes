@@ -8,9 +8,10 @@ Create a django project -
 	cd into my_project
 	[command] django-admin.py startproject app_name .
 
-Create a django app - 
-	[command] python manage.py createapp name_of_app
+Add a django app to the project - 
+	[command] python manage.py createapp name_of_app 
 		-this is a sub-packaged app that is scaffolded and snapped into the main django 'app'
+	add the name of the app you just created into the 'INSTALLED_APPS' python list in settings.py
 
 Run django in dev mode / dev server- 
 	[command] python manage.py runserver
@@ -22,3 +23,34 @@ Create a superuser for django-admin?
 	[command] python manage.py createsuperuser
 	follow the prompts
 
+FILES and their purpose
+
+manage.py - used to run commands in the shell environment
+urls.py - used to setup routes
+settings.py - register apps, configure databases, 
+__init__.py - python package indicator
+apps.py - configuration
+models.py - database modeling
+tests.py - testing
+views.py - views
+
+
+What is a Django "app"? -
+
+	- Django overuses the term 'app'. Creating a new app inside of our project enables the reuse of that app within the same project or an entirely different project.
+
+Urls.py - where the things are
+
+	- Default routes: root "/", admin "/admin"
+	- Default location: Project/main_app/urls.py
+	- Subsequent routes can be created within the individual 'apps' that we create alongside the main app. 
+	- Routes are in a python list called 'urlpatterns'. Importing the 'include()' function allows for bringing in routes/urls from different locations. This way urls can be managed at the individual app level instead of in the main app.
+
+Views.py - what the things are
+
+Observations about urls and views between flask and django -
+Django creates a separation between the routes (urls.py) and the views/controllers (views.py) and templates.
+Flask couples routes+views/controllers and only separates templates.
+
+
+Base templating - 
