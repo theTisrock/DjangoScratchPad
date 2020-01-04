@@ -41,6 +41,14 @@ What is a Django "app"? -
 
 Urls.py - where the things are
 
+	The BIG IDEA: The top level urls.py module in the "todo_app" package has the function 'include()' imported. Include links bottom level app urls to the top so they can be managed from the bottom in detail.
+	When you add another app, make sure to tie in that app with this top level urls module.
+	
+	See the pattern???
+	path(base_route, subsequent_patterns)
+	path('admin', subsequent_patterns)  # admin
+	path('', subsequent_patterns)  # root
+
 	- Default routes: root "/", admin "/admin"
 	- Default location: Project/main_app/urls.py
 	- Subsequent routes can be created within the individual 'apps' that we create alongside the main app. 
@@ -54,3 +62,13 @@ Flask couples routes+views/controllers and only separates templates.
 
 
 Base templating - 
+
+
+How do urls, views & templates interact? Urls map to functions called views that perform some task. When the task is completed, the state after execution of the view is applied to the template via render() and is returned in a response.
+BIG IDEA: Url patters map to functions/views, functions/views map to templates
+
+3 layers:
+
+1 Url
+2 Views/controllers/functions
+3 Templates
