@@ -61,9 +61,6 @@ Django creates a separation between the routes (urls.py) and the views/controlle
 Flask couples routes+views/controllers and only separates templates.
 
 
-Base templating - 
-
-
 How do urls, views & templates interact? Urls map to functions called views that perform some task. When the task is completed, the state after execution of the view is applied to the template via render() and is returned in a response.
 BIG IDEA: Url patters map to functions/views, functions/views map to templates
 
@@ -72,3 +69,4 @@ BIG IDEA: Url patters map to functions/views, functions/views map to templates
 1 Url
 2 Views/controllers/functions
 3 Templates
+
