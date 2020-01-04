@@ -9,7 +9,7 @@ Create a django project -
 	[command] django-admin.py startproject app_name .
 
 Add a django app to the project - 
-	[command] python manage.py createapp name_of_app 
+	[command] python manage.py startapp name_of_app 
 		-this is a sub-packaged app that is scaffolded and snapped into the main django 'app'
 	add the name of the app you just created into the 'INSTALLED_APPS' python list in settings.py
 
