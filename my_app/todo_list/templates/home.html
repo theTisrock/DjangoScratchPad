@@ -3,11 +3,18 @@
 {% block title%} home {% endblock %}
 
 {% block content %}
-<h1>Home Page</h1>
+<h1>To Do List</h1>
 
-<ul>
-{% for item in all_items %}
-<li>{{ item }} from: "{{ item.of_list }}". Complete? {{ item.complete }}</li>
-{% endfor %}
-</ul>
+{% if all_items %}
+<table class="table table-bordered">
+    {% for item in all_items %}
+    <tr>
+        <td> {{ item }} </td>
+        <td>from: "{{ item.of_list }}"</td>
+        <td>{% if not item.complete %} "incomplete" {% endif %}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
 {% endblock %}
