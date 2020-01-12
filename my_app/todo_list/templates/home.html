@@ -8,17 +8,10 @@
 {% if all_items %}
 <table class="table table-bordered">
     {% for item in all_items %}
-        {% if item.complete %}
-        <tr class="table-secondary">
+        <tr class="{% if item.complete %} table-secondary strikethrough {% endif %}">
             <td> {{ item }} </td>
             <td>from list: "{{ item.of_list }}"</td>
         </tr>
-        {% else %}
-        <tr>
-            <td> {{ item }} </td>
-            <td>from list: "{{ item.of_list }}"</td>
-        </tr>
-        {% endif %}
     {% endfor %}
 </table>
 {% endif %}
