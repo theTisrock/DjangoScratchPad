@@ -5,9 +5,17 @@ from .forms import ListItemForm
 # Create your views here.
 
 def home(request):
-    all_items = ListItem.objects.all
-    to_template = {'all_items': all_items}
-    return render(request, "home.html", to_template)
+
+    if request.method == 'POST':
+        form = ListItemForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            to_template = {'all_items': ListItem.objects.all}
+            return render(request, 'home.html', to_template)
+
+    else:
+        to_template = {'all_items': ListItem.objects.all}
+        return render(request, 'home.html', to_template)
 
 def about(request):
     to_template = {'about_text': "This site belongs to Chris Torok"}
