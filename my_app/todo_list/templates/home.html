@@ -4,5 +4,10 @@
 
 {% block content %}
 <h1>Home Page</h1>
-<p>{{ all_items }}</p>
+
+<ul>
+{% for item in all_items %}
+<li>{{ item }} from: "{{ item.of_list }}". Complete? {{ item.complete }}</li>
+{% endfor %}
+</ul>
 {% endblock %}
