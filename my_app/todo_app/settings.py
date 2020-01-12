@@ -120,4 +120,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/'  # the url to hit for clients to download the static content AKA 'exposing' the content
+STATICFILES_DIRS = [  # tells the application where on the computer to access the resource
+    os.path.join(BASE_DIR, 'static')
+]
