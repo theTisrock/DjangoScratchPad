@@ -3,9 +3,11 @@ from django.shortcuts import render
 # Create your views here.
 
 def home(request):
-    return render(request, "home.html", {})
+    to_template = {'home_text': "Welcome to the the Root!"}
+    return render(request, "home.html", to_template)
 
 def about(request):
-    return render(request, "about.html", {})
+    to_template = {'about_text': "This site belongs to Chris Torok"}
+    return render(request, "about.html", to_template)
 
 # end
