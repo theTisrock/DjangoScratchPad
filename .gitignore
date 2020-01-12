@@ -1,0 +1,12 @@
+.vscode/
+.vscode/*
+.idea/
+.idea/*
+my_app/todo_list/__pycache__/
+my_app/todo_list/__pycache__/*
+my_app/todo_list/migrations/__pycache__/
+my_app/todo_app/__pycache__/
+my_app/app_three/__pycache__/
+my_app/app_three/migrations/__pycache__/
+my_app/app_two/__pycache__/
+my_app/app_two/migrations/__pycache__/
