@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import ListItem
 from .forms import ListItemForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -10,6 +11,7 @@ def home(request):
         form = ListItemForm(request.POST or None)
         if form.is_valid():
             form.save()
+            messages.success(request, ("Item added :)"))
             to_template = {'all_items': ListItem.objects.all}
             return render(request, 'home.html', to_template)
 

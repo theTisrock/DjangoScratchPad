@@ -40,6 +40,12 @@
         </div>
       </nav>
 
+{% if messages %}
+{% for m in messages %}
+  {{ m }}
+{% endfor %}
+{% endif %}
+
 {% block content %}
 {% endblock %}  
 
