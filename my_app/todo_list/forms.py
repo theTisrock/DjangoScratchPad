@@ -5,6 +5,6 @@ from .models import ListItem
 class ListItemForm(forms.ModelForm):
     class Meta:
         model = ListItem
-        fields = ['item', 'complete', 'of_list']
+        fields = ['item', 'complete']
 
 # end
