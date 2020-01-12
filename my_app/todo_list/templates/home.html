@@ -8,11 +8,17 @@
 {% if all_items %}
 <table class="table table-bordered">
     {% for item in all_items %}
-    <tr>
-        <td> {{ item }} </td>
-        <td>from: "{{ item.of_list }}"</td>
-        <td>{% if not item.complete %} "incomplete" {% endif %}</td>
-    </tr>
+        {% if item.complete %}
+        <tr class="table-secondary">
+            <td> {{ item }} </td>
+            <td>from list: "{{ item.of_list }}"</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td> {{ item }} </td>
+            <td>from list: "{{ item.of_list }}"</td>
+        </tr>
+        {% endif %}
     {% endfor %}
 </table>
 {% endif %}
