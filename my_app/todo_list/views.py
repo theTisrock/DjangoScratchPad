@@ -4,7 +4,8 @@ from .models import ListItem
 # Create your views here.
 
 def home(request):
-    to_template = {'home_text': "Welcome to the the Root!"}
+    all_items = ListItem.objects.all
+    to_template = {'all_items': all_items}
     return render(request, "home.html", to_template)
 
 def about(request):
