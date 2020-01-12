@@ -122,5 +122,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'  # the url to hit for clients to download the static content AKA 'exposing' the content
 STATICFILES_DIRS = [  # tells the application where on the computer to access the resource
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'static'),
 ]
