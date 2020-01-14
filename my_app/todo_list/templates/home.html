@@ -11,6 +11,7 @@
         <tr class="{% if item.complete %} table-secondary strikethrough {% endif %}">
             <td> {{ item }} </td>
             <td>from list: "{{ item.of_list }}"</td>
+            <td><a href="{% url 'delete' item.id %}">delete</a></td>
         </tr>
     {% endfor %}
 </table>

@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import ListItem
 from .forms import ListItemForm
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 
@@ -22,5 +23,11 @@ def home(request):
 def about(request):
     to_template = {'about_text': "This site belongs to Chris Torok"}
     return render(request, "about.html", to_template)
+
+def delete(request, list_id):
+    item = ListItem.objects.get(pk=list_id)
+    item.delete()
+    messages.success(request, (f"item {list_id} deleted"))
+    return redirect('home')
 
 # end
