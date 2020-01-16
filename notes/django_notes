@@ -70,3 +70,7 @@ BIG IDEA: Url patters map to functions/views, functions/views map to templates
 2 Views/controllers/functions - perform some action
 3 Templates - package and send response
 
+Change: mark item as done by striking through items, mark items as undo by removing the strike through.
+
+components involved in the change: click(http request) -> url -> view/controller -> model -> template
+template: 1) text for done/undo
