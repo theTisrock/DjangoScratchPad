@@ -30,4 +30,12 @@ def delete(request, list_id):
     messages.success(request, (f"item {list_id} deleted"))
     return redirect('home')
 
+def toggle(request, list_id):
+    item = ListItem.objects.get(pk=list_id)
+
+    item.complete = False if item.complete == True else True
+    item.save()
+
+    return redirect('home')
+
 # end
