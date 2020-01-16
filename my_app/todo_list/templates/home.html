@@ -9,7 +9,7 @@
 <table class="table table-bordered">
     {% for item in all_items %}
         <tr class="{% if item.complete %}table-secondary strikethrough{% endif %}">
-            <td class="{% if item.complete %}strikethrough{% endif %}">done</td>
+            <td><a href="{% url 'toggle' item.id %}">toggle</a></td>
             <td> {{ item }} </td>
             <td>from list: "{{ item.of_list }}"</td>
             <td><a href="{% url 'delete' item.id %}">delete</a></td>
