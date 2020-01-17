@@ -11,6 +11,18 @@
         <tr class="{% if item.complete %} table-secondary strikethrough {% endif %}">
             <td><a href="{% url 'toggle' item.id %}">toggle</a></td>
             <td> {{ item }} </td>
+
+            <td>{% if edit_mode %} <!-- EDIT -->
+                    <form method="POST" action="{% url 'edit' item.id %}">
+                        {% csrf_token %}
+                        <input type="text" name="item{{ item.id }}" placeholder="{{ item.item }}">
+                        <button type="submit">save</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'edit' item.id %}">edit</a> <!-- turn on edit_mode to True -->
+                {% endif %}
+            </td>
+
             <td><a href="{% url 'delete' item.id %}">delete</a></td>
         </tr>
     {% endfor %}
