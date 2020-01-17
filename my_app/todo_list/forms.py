@@ -7,4 +7,10 @@ class ListItemForm(forms.ModelForm):
         model = ListItem
         fields = ['item', 'complete']
 
+
+class EditItemForm(forms.ModelForm):
+    class Meta:
+        model = ListItem
+        fields = ['item']
+
 # end

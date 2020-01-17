@@ -38,4 +38,12 @@ def toggle(request, list_id):
 
     return redirect('home')
 
+def edit(request, list_id: int, item_name: str = None):
+    if item_name is None:  # read only
+        return render(request, 'edit.html', to_template)
+
+    else:  # update
+        item = ListItem.objects.get(pk=list_id)
+        return redirect('home')  # when finished editing
+
 # end
