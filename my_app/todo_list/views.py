@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import ListItem
-from .forms import ListItemForm
+from .forms import ListItemForm, EditItemForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 
@@ -8,16 +8,20 @@ from django.http import HttpResponseRedirect
 
 def home(request):
 
+    edit_mode = False
+
     if request.method == 'POST':
         form = ListItemForm(request.POST or None)
         if form.is_valid():
             form.save()
             messages.success(request, ("Item added :)"))
             to_template = {'all_items': ListItem.objects.all}
+            to_template['edit_mode': edit_mode]
             return render(request, 'home.html', to_template)
 
     else:
         to_template = {'all_items': ListItem.objects.all}
+        to_template['edit_mode': edit_mode]
         return render(request, 'home.html', to_template)
 
 def about(request):
@@ -38,12 +42,27 @@ def toggle(request, list_id):
 
     return redirect('home')
 
-def edit(request, list_id: int, item_name: str = None):
-    if item_name is None:  # read only
-        return render(request, 'edit.html', to_template)
+def edit(request, list_id: int):
 
-    else:  # update
-        item = ListItem.objects.get(pk=list_id)
-        return redirect('home')  # when finished editing
+    # click save
+    if request.method == 'POST':
+        form = EditItemForm(request.POST or None)
+        
+        if form.is_valid():
+            # TODO update in db
+            new_item_name = form.data[f'item{list_id}']
+            item = ListItem.objects.get(pk=list_id)
+            item.item = new_item_name
+            item.save()
+            messages.success(request, (f"item {list_id} updated"))
+            return redirect('home', )
+
+    # click edit
+    else:
+        to_template = ListItem.objects.all
+        to_template['edit_mode'] = True
+        return render(request, 'home.html', to_template)
+
+    pass
 
 # end
