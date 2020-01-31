@@ -2,5 +2,10 @@
 {% block title%} To Do List | Edit Item {% endblock %}
 
 {% block content %}
-<h1>To Do List | Edit Item</h1>
+<p>Edit Item</p>
+<form action="{% url 'edit' item.id %}">
+    {% csrf_token %}
+    <input type="text" placeholder="{{ item.item }}" name="item{{ item.id }}">
+    <button type="submit">submit</button>
+</form>
 {% endblock %}
