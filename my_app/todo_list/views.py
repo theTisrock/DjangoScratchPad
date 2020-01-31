@@ -41,12 +41,12 @@ def toggle(request, list_id):
 def edit(request, list_id: int):
     
     if request.method == 'POST':
-        form = ListItemForm(request.POST or None)
+        item = ListItem.objects.get(pk=list_id)
+        form = ListItemForm(request.POST or None, instance=item)
         if form.is_valid():
-            form.save()
+            form.save()            
             messages.success(request, ("Item edited :)"))
-            to_template = {'all_items': ListItem.objects.all}
-            return render(request, 'edit.html', to_template)
+            return redirect('home')
 
     else:
         to_template = {'item': ListItem.objects.get(pk=list_id)}

@@ -10,8 +10,8 @@
     {% for item in all_items %}
         <tr class="{% if item.complete %} table-secondary strikethrough {% endif %}">
             <td><a href="{% url 'toggle' item.id %}">toggle</a></td>
-            <td> {{ item }} </td>
-            <td><a href="{% url 'edit' item.id %}">edit</a></td>
+            <td><a href="{% url 'edit' item.id %}">{{ item }}</a></td>
+            <td></td>
             <td><a href="{% url 'delete' item.id %}">delete</a></td>
         </tr>
     {% endfor %}
