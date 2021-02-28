@@ -20,6 +20,10 @@ def test_fails():
     assert increment(5) == 0
 
 
+def to_stdout():
+    print("hello")
+
+
 class TestMath:
 
     def test_increment(self):
@@ -30,3 +34,16 @@ class TestMath:
 
     def test_subtract(self):
         assert subtract(10, 9) == 1
+
+
+class TestFixtures:
+
+    def test_temp_dir(self, tmpdir):
+        print(tmpdir)
+        assert 0
+
+    def test_stdout(self, capsys):
+        to_stdout()
+        out, err = capsys.readouterr()
+        print(out)
+        assert 0

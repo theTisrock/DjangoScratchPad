@@ -10,3 +10,8 @@ pytest will run all files of the form test_*.py or *_test.py in the current dire
 More generally, it follows standard test discovery rules.
 
 - execute the tests by entering the "pytest" command in the project directory.
+
+
+Built in Fixtures: https://docs.pytest.org/en/stable/builtin.html
+
+Fixture Requesting: https://docs.pytest.org/en/stable/fixture.html
