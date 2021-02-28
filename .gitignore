@@ -10,3 +10,4 @@ my_app/app_three/__pycache__/
 my_app/app_three/migrations/__pycache__/
 my_app/app_two/__pycache__/
 my_app/app_two/migrations/__pycache__/
+my_app/db.sqlite3
